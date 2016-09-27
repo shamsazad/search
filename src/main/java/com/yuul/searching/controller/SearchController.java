@@ -7,14 +7,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Entity;
+
 @RestController
 @RequestMapping("/yuul/search/")
 public class SearchController {
 
     @Autowired
-    SearchService searchService;
+    private SearchService searchService;
 
-    @RequestMapping(value = "/{location}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Search get(@PathVariable int id) {
 
@@ -23,8 +25,13 @@ public class SearchController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public HttpStatus post(@RequestBody Search search) {
+    public void post(@RequestBody Search search) {
         Search searchSaved = searchService.create(search);
-        return null;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public Iterable<Search> getAll() {
+        return searchService.findAll();
     }
 }
