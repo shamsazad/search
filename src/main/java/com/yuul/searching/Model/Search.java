@@ -9,10 +9,10 @@ import javax.validation.constraints.NotNull;
 public class Search {
 
     @NotNull
-    String location;
+    private String location;
     @Id
     @GeneratedValue
-    int id;
+    private int id;
 
     public int getArea() {
         return Area;
