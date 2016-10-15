@@ -25,6 +25,7 @@ public class SearchController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
+    @CrossOrigin
     public void post(@RequestBody Search search) {
         Search searchSaved = searchService.create(search);
     }

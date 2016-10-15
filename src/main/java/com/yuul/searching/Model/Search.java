@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name="abc")
 public class Search {
 
     @NotNull
@@ -13,6 +13,17 @@ public class Search {
     @Id
     @GeneratedValue
     int id;
+
+    public int getArea() {
+        return Area;
+    }
+
+    public void setArea(int area) {
+        Area = area;
+    }
+
+    @NotNull
+    int Area;
 
     public String getLocation() {
         return location;
