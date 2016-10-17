@@ -14,16 +14,16 @@ public class Search {
     @GeneratedValue
     private int id;
 
-    public int getArea() {
-        return Area;
+    public int getNumberOfRoom() {
+        return numberOfRoom;
     }
 
-    public void setArea(int area) {
-        Area = area;
+    public void setNumberOfRoom(int numberOfRoom) {
+        this.numberOfRoom = numberOfRoom;
     }
 
     @NotNull
-    int Area;
+    int numberOfRoom;
 
     public String getLocation() {
         return location;
