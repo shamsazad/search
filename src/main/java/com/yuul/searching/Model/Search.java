@@ -22,7 +22,6 @@ public class Search {
         this.numberOfRoom = numberOfRoom;
     }
 
-    @NotNull
     int numberOfRoom;
 
     public String getLocation() {
