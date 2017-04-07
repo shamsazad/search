@@ -4,8 +4,8 @@ import com.yuul.searching.Model.Search;
 import com.yuul.searching.repository.ISearchRepository;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class SearchControllerTest {
@@ -18,7 +18,7 @@ public class SearchControllerTest {
     private Search search;
 
     @Before
-    private void insertValueInDatabase() {
+    public void insertValueInDatabase() {
         search.setId(1);
         search.setLocation("Montreal");
         searchRepository.save(search);
@@ -26,7 +26,7 @@ public class SearchControllerTest {
     @Test
     public void shouldGetService(){
         this.result = this.service.get(1);
-        assertThat(23).equal(this.searchRepository.findOne(1));
+        assertThat(result,equalTo(this.searchRepository.findOne(1)));
     }
 
 }
