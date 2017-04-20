@@ -18,8 +18,6 @@ public class SearchControllerTest {
     @Autowired
     private SearchController service;
     @Autowired
-    private Search result;
-    @Autowired
     private ISearchRepository searchRepository;
     @Autowired
     private Search search;
@@ -32,8 +30,8 @@ public class SearchControllerTest {
     }
     @Test
     public void shouldGetService(){
-        this.result = this.service.get(1);
-        assertThat(result,equalTo(searchRepository.findOne(1)));
+
+        assertThat(search.getId(),equalTo(service.get(1).getId()));
     }
 
 }

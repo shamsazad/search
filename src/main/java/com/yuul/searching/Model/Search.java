@@ -1,11 +1,14 @@
 package com.yuul.searching.Model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity(name="abc")
+@Component
 public class Search {
 
     @NotNull
