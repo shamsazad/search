@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity(name="abc")
-@Component
 public class Search {
 
     @NotNull

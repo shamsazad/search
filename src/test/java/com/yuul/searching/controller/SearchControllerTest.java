@@ -19,8 +19,8 @@ public class SearchControllerTest {
     private SearchController service;
     @Autowired
     private ISearchRepository searchRepository;
-    @Autowired
-    private Search search;
+
+    Search search = new Search();
 
     @Before
     public void insertValueInDatabase() {
