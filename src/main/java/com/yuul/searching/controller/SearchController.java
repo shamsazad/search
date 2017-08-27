@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/yuul/search/")
+@RequestMapping("/yuul/searchs/")
 public class SearchController {
 
     @Autowired
@@ -32,6 +32,7 @@ public class SearchController {
     @ResponseBody
     @CrossOrigin
     public Iterable<Search> getAll() {
+        //TODO: added a todo to do
         return searchService.findAll();
     }
 }
