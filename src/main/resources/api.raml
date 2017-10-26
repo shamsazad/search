@@ -1,0 +1,45 @@
+#%RAML 0.8
+title: Quote s2s API
+version: v0.1
+baseUri: http://localhost:8080
+
+mediaType: application/json
+
+schemas:
+/search:
+  displayName: Quote  Resource
+  description: Create a quote or retrieve all quotes.
+
+  post:
+    description: Create a new quote.
+    body:
+    responses:
+      201:
+        headers:
+        body:
+
+  get:
+    description: Retrieve all quotes.
+    responses:
+      200:
+        headers:
+        body:
+
+  /{searchId}:
+    description: Retrieve, update, or delete a quote identified by its ID.
+    uriParameters:
+      quoteId:
+        description: The requested quote ID.
+
+    get:
+      description: Retrieve information specific to the quote ID.
+      responses:
+        200:
+          body:
+
+    delete:
+      description: Remove quote with the given ID.
+      responses:
+        204:
+          headers:
+          body:

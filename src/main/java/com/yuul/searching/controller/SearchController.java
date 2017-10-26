@@ -1,9 +1,13 @@
 package com.yuul.searching.controller;
 
-import com.yuul.searching.Model.Search;
+import com.yuul.searching.model.Search;
+import com.yuul.searching.model.external.GoogleGeometry.Bound;
+import com.yuul.searching.model.external.GoogleGeometry.Viewport;
+import com.yuul.searching.model.external.LocationUi;
 import com.yuul.searching.service.SearchService;
+import java.io.IOException;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,15 +17,21 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{address}", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
-    public Search get(@PathVariable int id) {
-
-        return searchService.findOne(id);
+    public LocationUi get(@PathVariable String address) throws IOException {
+        return searchService.findApartment(address);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/eventTrigger", method = RequestMethod.POST)
+    @ResponseBody
+    @CrossOrigin
+    public LocationUi post(@RequestBody Bound bounds) throws IOException {
+        return searchService.eventTrigger(bounds);
+    }
+
+    /*@RequestMapping(method = RequestMethod.POST, path="/abc")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin
     public void post(@RequestBody Search search) {
@@ -33,5 +43,5 @@ public class SearchController {
     @CrossOrigin
     public Iterable<Search> getAll() {
         return searchService.findAll();
-    }
+    }*/
 }

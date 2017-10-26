@@ -1,29 +1,31 @@
-package com.yuul.searching.Model;
+package com.yuul.searching.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
-@Entity(name="abc")
+@Entity(name = "basicsearch")
 public class Search {
 
     @NotNull
     private String location;
+
     @Id
     @GeneratedValue
     private int id;
 
-    public int getNumberOfRoom() {
-        return numberOfRoom;
-    }
-
-    public void setNumberOfRoom(int numberOfRoom) {
-        this.numberOfRoom = numberOfRoom;
-    }
-
     @NotNull
-    int numberOfRoom;
+    private Date startDate;
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
     public String getLocation() {
         return location;
