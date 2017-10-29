@@ -47,7 +47,18 @@ public class SearchService {
 
     public LocationUi eventTrigger(Bound bounds) {
 
-        //List<Location> locations = getAllTheLocationsWithinViewPort(location);
-        return null;
+        Location location = new Location(bounds.getNortheast().getLat(),
+                bounds.getNortheast().getLng());
+        List<Location> locationList = new ArrayList<>();
+
+        List<Location> locations = getAllTheLocationsWithinViewPort(location);
+
+        location.setPlace_id("dummyId");
+        locationList.add(location);
+        locationUi.setLocationList(locationList);
+        locationUi.setLocation(location);
+
+
+        return locationUi;
     }
 }
