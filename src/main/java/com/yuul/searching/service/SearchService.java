@@ -2,7 +2,6 @@ package com.yuul.searching.service;
 
 import com.yuul.searching.gateway.GoogleGeoCodeService;
 import com.yuul.searching.model.external.GoogleGeometry.Bound;
-import com.yuul.searching.model.external.GoogleGeometry.Viewport;
 import com.yuul.searching.model.external.GoogleGeometryApi;
 import com.yuul.searching.model.external.Location;
 import com.yuul.searching.model.external.LocationUi;
