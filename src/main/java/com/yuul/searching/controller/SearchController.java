@@ -8,6 +8,7 @@ import com.yuul.searching.service.SearchService;
 import java.io.IOException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,7 +25,7 @@ public class SearchController {
         return searchService.findApartment(address);
     }
 
-    @RequestMapping(value = "/eventTrigger", method = RequestMethod.POST)
+    @RequestMapping(value = "/eventTrigger", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @CrossOrigin
     public LocationUi post(@RequestBody Bound bounds) throws IOException {

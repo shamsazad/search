@@ -47,6 +47,8 @@ public class SearchService {
     }
 
     public LocationUi eventTrigger(Bound bounds) {
+
+        //List<Location> locations = getAllTheLocationsWithinViewPort(location);
         return null;
     }
 }

@@ -2,21 +2,23 @@ package com.yuul.searching.config;
 
 
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 
 @Configuration
 public class RequestConfig {
 
-
-    /*
-        Internal calls (S2S) to other NGOM services. In this case when no Eureka is available
-        or in an environment where the Eureka is not available.
-     */
     @Bean
-    public RestTemplate restTemplateDefault() {
-        return new RestTemplate();
+    public MappingJackson2HttpMessageConverter jsonConverter() {
+        MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
+        ObjectMapper objectMapper = new ObjectMapper();
+        //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        jsonConverter.setObjectMapper(objectMapper);
+        return jsonConverter;
     }
 }
