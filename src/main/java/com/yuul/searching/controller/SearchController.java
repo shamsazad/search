@@ -4,11 +4,14 @@ import com.yuul.searching.model.Search;
 import com.yuul.searching.model.external.GoogleGeometry.Bound;
 import com.yuul.searching.model.external.GoogleGeometry.Viewport;
 import com.yuul.searching.model.external.LocationUi;
+import com.yuul.searching.model.internal.Advertisement;
 import com.yuul.searching.service.SearchService;
 import java.io.IOException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,14 +35,14 @@ public class SearchController {
         return searchService.eventTrigger(bounds);
     }
 
-    /*@RequestMapping(method = RequestMethod.POST, path="/abc")
+    @RequestMapping(method = RequestMethod.POST, path="/postAdd")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin
-    public void post(@RequestBody Search search) {
-        Search searchSaved = searchService.create(search);
+    public void post(@RequestBody Advertisement advertisement) {
+        searchService.createAdd(advertisement);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    /*@RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
     public Iterable<Search> getAll() {

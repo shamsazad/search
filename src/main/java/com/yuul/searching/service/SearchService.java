@@ -5,6 +5,8 @@ import com.yuul.searching.model.external.GoogleGeometry.Bound;
 import com.yuul.searching.model.external.GoogleGeometryApi;
 import com.yuul.searching.model.external.Location;
 import com.yuul.searching.model.external.LocationUi;
+import com.yuul.searching.model.internal.Advertisement;
+import com.yuul.searching.repository.ISearchRepository;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +17,13 @@ import org.springframework.stereotype.Service;
 public class SearchService {
 
     private GoogleGeoCodeService googleGeoCodeService;
+    private ISearchRepository searchRepository;
     private LocationUi locationUi = new LocationUi();
 
     @Autowired
-    public SearchService( GoogleGeoCodeService googleGeoCodeService) {
+    public SearchService( GoogleGeoCodeService googleGeoCodeService, ISearchRepository searchRepository) {
         this.googleGeoCodeService = googleGeoCodeService;
+        this.searchRepository = searchRepository;
     }
 
 
@@ -60,5 +64,9 @@ public class SearchService {
 
 
         return locationUi;
+    }
+
+    public void createAdd(Advertisement advertisement) {
+        searchRepository.save(advertisement);
     }
 }
