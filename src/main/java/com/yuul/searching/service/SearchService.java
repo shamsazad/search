@@ -66,7 +66,12 @@ public class SearchService {
         return locationUi;
     }
 
-    public void createAdd(Advertisement advertisement) {
+    public void createAdd(Advertisement advertisement) throws IOException {
+
+        GoogleGeometryApi googleGeometryApi = googleGeoCodeService.getAddressWithGeoLocation(advertisement.getAddress());
+        Location location = new Location(googleGeometryApi.getResults().get(0).getGeometry().getLocation().getLat(),
+                googleGeometryApi.getResults().get(0).getGeometry().getLocation().getLat());
+       // advertisement.setViewport(googleGeometryApi.getResults().get(0).getGeometry().getViewport());
         searchRepository.save(advertisement);
     }
 }

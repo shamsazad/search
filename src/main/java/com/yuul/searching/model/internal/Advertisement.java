@@ -1,7 +1,9 @@
 package com.yuul.searching.model.internal;
 
+import com.yuul.searching.model.external.GoogleGeometry.Viewport;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.persistence.Converter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="advertisment")
+@Table(name="advertisement")
 public class Advertisement implements Serializable {
 
     @Id
@@ -20,5 +22,6 @@ public class Advertisement implements Serializable {
     private int period;
     private String address;
     private BigDecimal price;
+    //private Viewport viewport;
 
 }

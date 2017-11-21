@@ -13,7 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class GoogleGeoCodeService {
 
     private final String googleUri = "https://maps.googleapis.com/maps/api/geocode/json";
-    private final String key = "AIzaSyC_ErmfaXptjlCpp7UcEaONwQAenMopuFo";
+    private final String key = "AIzaSyAt9wncKUwUhTyMSRr8-EouLTSiQCxS3Og";
 
     public GoogleGeometryApi getAddressWithGeoLocation(String address) throws IOException {
 

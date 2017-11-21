@@ -38,7 +38,7 @@ public class SearchController {
     @RequestMapping(method = RequestMethod.POST, path="/postAdd")
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin
-    public void post(@RequestBody Advertisement advertisement) {
+    public void post(@RequestBody Advertisement advertisement) throws IOException {
         searchService.createAdd(advertisement);
     }
 

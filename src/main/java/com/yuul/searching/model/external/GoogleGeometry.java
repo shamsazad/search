@@ -3,6 +3,7 @@ package com.yuul.searching.model.external;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -87,44 +88,32 @@ public class GoogleGeometry implements Serializable {
     @Getter
     @EqualsAndHashCode
     @ToString
+    @AllArgsConstructor
     public static class Viewport implements Serializable {
 
         private final Northeast northeast;
         private final Southwest southwest;
 
-        @JsonCreator
-        public Viewport(Northeast northeast, Southwest southwest) {
-            this.northeast = northeast;
-            this.southwest = southwest;
-        }
 
         @Getter
         @ToString
         @EqualsAndHashCode
+        @AllArgsConstructor
         public static class Northeast implements Serializable {
 
             private final Double lat;
             private final Double lng;
 
-            @JsonCreator
-            public Northeast(Double lat, Double lng) {
-                this.lat = lat;
-                this.lng = lng;
-            }
         }
         @Getter
         @ToString
         @EqualsAndHashCode
+        @AllArgsConstructor
         public static class Southwest implements Serializable {
 
             private final Double lat;
             private final Double lng;
 
-            @JsonCreator
-            public Southwest(Double lat, Double lng) {
-                this.lat = lat;
-                this.lng = lng;
-            }
         }
     }
 }
