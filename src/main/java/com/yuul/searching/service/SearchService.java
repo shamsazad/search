@@ -33,7 +33,7 @@ public class SearchService {
         List<Location> locationList = new ArrayList<>();
 
         Location location = new Location(googleGeometryApi.getResults().get(0).getGeometry().getLocation().getLat(),
-                googleGeometryApi.getResults().get(0).getGeometry().getLocation().getLat());
+                googleGeometryApi.getResults().get(0).getGeometry().getLocation().getLng());
         location.setPlace_id(googleGeometryApi.getResults().get(0).getPlace_id());
 
         locationList.add(location);
